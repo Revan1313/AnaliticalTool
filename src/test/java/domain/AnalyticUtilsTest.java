@@ -2,33 +2,29 @@ package domain;
 
 import org.junit.Before;
 import org.junit.Test;
-
-
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 import static org.mockito.BDDMockito.given;
 
-public class AnaliticUtilsTest {
+public class AnalyticUtilsTest {
     final static String FILE_PATH = "src/main/resources/test.txt";
+    private List<String> lines;
     @Mock
-    public AnaliticUtils analiticUtils;
+    public AnalyticUtils analyticUtils;
 
-    public AnaliticUtilsTest() {
+    public AnalyticUtilsTest() {
         MockitoAnnotations.openMocks(this);
-        this.analiticUtils = new AnaliticUtils() ;
+        this.analyticUtils = new AnalyticUtils();
     }
 
-    private List<String> lines;
 
     @Before
     public void init() {
-         lines = analiticUtils.readFile(FILE_PATH);
+        lines = analyticUtils.readFile(FILE_PATH);
     }
 
     @Test
