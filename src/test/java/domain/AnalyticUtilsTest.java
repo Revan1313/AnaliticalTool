@@ -24,7 +24,7 @@ public class AnalyticUtilsTest {
 
     @Before
     public void init() {
-        lines = analyticUtils.readFile(FILE_PATH);
+        lines = analyticUtils.readFileWithLines(FILE_PATH);
     }
 
     @Test

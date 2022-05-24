@@ -14,7 +14,7 @@ public class CommonLine {
 
 
     public CommonLine(String characterType, String service_id, String question_type_id,
-                      CommonLine.response_type response_type, Date dateFrom, int timeInMinutesOfWaiting) {
+                      CommonLine.response_type response_type, Date dateFrom) {
         this.characterType = character_type.valueOf(characterType);
         this.service_id = service_id;
         this.question_type_id = question_type_id;
@@ -27,7 +27,14 @@ public class CommonLine {
         this.service_id = characteristics[1];
         this.question_type_id = characteristics[2];
         this.response_type = response_type.valueOf(characteristics[3]);
-        this.dateFrom = new SimpleDateFormat("dd.MM.yyyy").parse(characteristics[4]);
+        if(characteristics[4].contains("-")){
+            this.dateFrom = new SimpleDateFormat("dd.MM.yyyy")
+                    .parse(characteristics[4]
+                    .substring(0,characteristics[4].indexOf("-")-1));
+        }else{
+            this.dateFrom = new SimpleDateFormat("dd.MM.yyyy")
+                    .parse(characteristics[4]);
+        }
     }
 
 
